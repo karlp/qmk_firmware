@@ -33,6 +33,16 @@ To configure it, add this to your `rules.mk`:
 CUSTOM_MATRIX = lite
 ```
 
+or, add the following to your `matrix` section in `info.json:
+
+```json
+  "matrix_pins": {
+    "custom_lite": true,
+    "rows": ["R1", "R2"],
+    "cols": ["C0", "C1"]
+  },
+```
+
 And implement the following functions in a `matrix.c` file in your keyboard folder:
 
 ```c
@@ -59,7 +69,9 @@ To configure it, add this to your rules.mk:
 CUSTOM_MATRIX = yes
 ```
 
-And implement the following functions in a `matrix.c` file in your keyboard folder:
+or, use ```"custom": true``` in `info.json` as for custom_lite above.
+
+Then, implement the following functions in a `matrix.c` file in your keyboard folder:
 
 ```c
 matrix_row_t matrix_get_row(uint8_t row) {
